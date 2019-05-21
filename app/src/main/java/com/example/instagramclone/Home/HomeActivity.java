@@ -2,6 +2,7 @@ package com.example.instagramclone.Home;
 
 import android.content.Context;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,13 @@ public class HomeActivity extends AppCompatActivity {
         Log.d(TAG, "onCreate: Starting.");
 
         setupBottomNavigationView();
+    }
+    private void setupViewPager(){
+        SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new CameraFragment());
+        adapter.addFragment(new HomeFragment());
+        adapter.addFragment(new MessagesFragment());
+        ViewPager viewPager = (ViewPager) findViewById(R.id.container);
     }
 
     /**
