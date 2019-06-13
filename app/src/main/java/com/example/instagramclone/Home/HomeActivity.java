@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     /**
-     * Responisble for adding the three tabs: Camera, Home, Messages.
+     * Responsible for adding the three tabs: Camera, Home, Messages.
      */
     private void setupViewPager(){
         SectionsPagerAdapter adapter = new SectionsPagerAdapter(getSupportFragmentManager());
