@@ -17,6 +17,7 @@ import android.widget.ProgressBar;
 
 import com.example.instagramclone.R;
 import com.example.instagramclone.Utils.BottomNavigationViewHelper;
+import com.example.instagramclone.Utils.UniversalImageLoader;
 
 public class ProfileActivity extends AppCompatActivity {
     private static final String TAG = "ShareActivity";
@@ -24,7 +25,9 @@ public class ProfileActivity extends AppCompatActivity {
     private Context mContext = ProfileActivity.this;
     private static final int ACTIVITY_NUM = 4;
 
+
     private ProgressBar mProgressBar;
+    private ImageView profilePhoto;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -36,8 +39,20 @@ public class ProfileActivity extends AppCompatActivity {
         mProgressBar.setVisibility(View.GONE);
         setupBottomNavigationView();
         setupToolbar();
+        setupActivityWidgets();
+        setProfileImage();
+    }
 
+    private void setProfileImage(){
+        Log.d(TAG, "setProfileImage: setting profile photo");
+        String imgURL = "i.redd.it/vodc9otcnpex.png";
+        UniversalImageLoader.setImage(imgURL, profilePhoto, mProgressBar,"https://");
+    }
 
+    private void setupActivityWidgets(){
+        mProgressBar = (ProgressBar) findViewById(R.id.profileProgressBar);
+        mProgressBar.setVisibility(View.GONE);
+        profilePhoto = (ImageView)findViewById(R.id.profile_image);
     }
 
     private void setupToolbar(){
